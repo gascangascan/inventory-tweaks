@@ -25,10 +25,10 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
     public static final int ACTION_TIMEOUT = 500;
     public static final int POLLING_DELAY = 3;
 
-    private auy guiContainer;
-    private rp container;
-    private Map<InvTweaksContainerSection, List<sq>> slotRefs 
-            = new HashMap<InvTweaksContainerSection, List<sq>>();
+    private avf guiContainer;
+    private rq container;
+    private Map<InvTweaksContainerSection, List<sr>> slotRefs 
+            = new HashMap<InvTweaksContainerSection, List<sr>>();
     private int clickDelay = 0;
     
     
@@ -42,7 +42,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
     public InvTweaksContainerManager(Minecraft mc) {
         super(mc);
         
-        aue currentScreen = getCurrentScreen();
+        aul currentScreen = getCurrentScreen();
         if (isGuiContainer(currentScreen)) {
         	this.guiContainer = asGuiContainer(currentScreen);
             this.container = getContainer(this.guiContainer);
@@ -50,8 +50,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
         else {
             this.container = getPlayerContainer();
         }
-        
-        List<sq> slots = (List<sq>) getSlots(container);
+        List<sr> slots = (List<sr>) getSlots(container);
         int size = slots.size();
         boolean guiWithInventory = true;
 
@@ -143,8 +142,8 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
 	public boolean move(InvTweaksContainerSection srcSection, int srcIndex,
             InvTweaksContainerSection destSection, int destIndex) {
 	    //System.out.println(srcSection + ":" + srcIndex + " to " + destSection + ":" + destIndex);
-	    um srcStack = getItemStack(srcSection, srcIndex);
-	    um destStack = getItemStack(destSection, destIndex);
+	    ur srcStack = getItemStack(srcSection, srcIndex);
+	    ur destStack = getItemStack(destSection, destIndex);
 	    
         if (srcStack == null && destIndex != DROP_SLOT) {
             return false;
@@ -219,12 +218,12 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
 	        InvTweaksContainerSection destSection, int destIndex,
 	        int amount) {
 
-	    um source = getItemStack(srcSection, srcIndex);
+	    ur source = getItemStack(srcSection, srcIndex);
 	    if (source == null || srcSection == destSection && srcIndex == destIndex) {
             return true;
         }
 
-	    um destination = getItemStack(srcSection, srcIndex);
+	    ur destination = getItemStack(srcSection, srcIndex);
         int sourceSize = getStackSize(source);
         int movedAmount = Math.min(amount, sourceSize);
 	    
@@ -261,7 +260,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
      * @throws Exception
      */
     public boolean putHoldItemDown(InvTweaksContainerSection destSection, int destIndex) {
-        um heldStack = getHeldStack();
+        ur heldStack = getHeldStack();
         if (heldStack != null) {
         	if (getItemStack(destSection, destIndex) == null) {
         		click(destSection, destIndex, false);
@@ -326,7 +325,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
 		return getIsMouseOverSlot(slot, getMouseX(), getMouseY());
 	}
 	
-	private boolean getIsMouseOverSlot(sq slot, int x, int y) {
+	private boolean getIsMouseOverSlot(sr slot, int x, int y) {
         // Copied from GuiContainer
 		if (guiContainer != null) {
 	        int i = guiContainer.n; // TODO Deobfuscate
@@ -356,7 +355,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
         return slotRefs.containsKey(section);
     }
 
-    public List<sq> getSlots(InvTweaksContainerSection section) {
+    public List<sr> getSlots(InvTweaksContainerSection section) {
         return slotRefs.get(section); 
     }
 
@@ -365,7 +364,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
      */
     public int getSize() {
         int result = 0;
-        for (List<sq> slots : slotRefs.values()) {
+        for (List<sr> slots : slotRefs.values()) {
             result += slots.size();
         }
         return result;
@@ -392,7 +391,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
      */
     public int getFirstEmptyIndex(InvTweaksContainerSection section) {
         int i = 0;
-        for (sq slot : slotRefs.get(section)) { 
+        for (sr slot : slotRefs.get(section)) { 
             if (!hasStack(slot)) {
                 return i;
             }
@@ -414,8 +413,8 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
         }
     }
 
-    public sq getSlot(InvTweaksContainerSection section, int index) {
-        List<sq> slots = slotRefs.get(section);
+    public sr getSlot(InvTweaksContainerSection section, int index) {
+        List<sr> slots = slotRefs.get(section);
         if (slots != null) {
             return slots.get(index);
         } else {
@@ -446,7 +445,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
                     || (preferInventory && section != InvTweaksContainerSection.INVENTORY_NOT_HOTBAR
                             && section != InvTweaksContainerSection.INVENTORY_HOTBAR)) {
                 int i = 0;
-                for (sq slot : slotRefs.get(section)) {
+                for (sr slot : slotRefs.get(section)) {
                     if (getSlotNumber(slot) == slotNumber) {
                         return i;
                     }
@@ -466,7 +465,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
         // TODO Caching with getSlotIndex
         for (InvTweaksContainerSection section : slotRefs.keySet()) {
             if (section != InvTweaksContainerSection.INVENTORY) {
-                for (sq slot : slotRefs.get(section)) {
+                for (sr slot : slotRefs.get(section)) {
                     if (getSlotNumber(slot) == slotNumber) {
                         return section;
                     }
@@ -482,7 +481,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
      * @param slot
      * @return An ItemStack or null.
      */
-    public um getItemStack(InvTweaksContainerSection section, int index) 
+    public ur getItemStack(InvTweaksContainerSection section, int index) 
             throws NullPointerException, IndexOutOfBoundsException {
         int slot = indexToSlot(section, index);
         if (slot >= 0 && slot < getSlots(container).size()) {
@@ -492,13 +491,13 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
         }
     }
 
-    public rp getContainer() {
+    public rq getContainer() {
         return container;
     }
     
     private int getFirstEmptyUsableSlotNumber() {
         for (InvTweaksContainerSection section : slotRefs.keySet()) {
-            for (sq slot : slotRefs.get(section)) {
+            for (sr slot : slotRefs.get(section)) {
                 // Use only standard slot (to make sure
                 // we can freely put and remove items there)
                 if (isBasicSlot(slot) && !hasStack(slot)) {
@@ -520,7 +519,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
             return DROP_SLOT;
         }
         if (hasSection(section)) {
-            sq slot = slotRefs.get(section).get(index);
+            sr slot = slotRefs.get(section).get(index);
             if (slot != null) {
                 return getSlotNumber(slot);
             }
