@@ -55,6 +55,7 @@ public class InvTweaksConfig {
     public static final String PROP_SHORTCUT_UP = "shortcutKeyToUpperSection";
     public static final String PROP_SHORTCUT_DOWN = "shortcutKeyToLowerSection";
     public static final String PROP_SLOW_SORTING = "slowSorting";
+    public static final String PROP_SLOW_SORTING_DELAY = "slowsortingdelay";
     
     // Other
     public static final String PROP_ENABLE_SOUNDS = "enableSounds";
@@ -366,7 +367,11 @@ public class InvTweaksConfig {
             return 0;
         }
         else {
-            return InvTweaksConst.SLOW_SORTING_DELAY;
+        	try{
+        		return Integer.parseInt(getProperty(PROP_SLOW_SORTING_DELAY));
+        	}catch (NumberFormatException e){
+        		return 0;
+        	}
         }
     }
 
@@ -487,6 +492,7 @@ public class InvTweaksConfig {
         properties.put(PROP_ENABLE_AUTO_EQUIP_ARMOR, VALUE_FALSE);
         properties.put(PROP_KEY_SORT_INVENTORY, "R");
         properties.put(PROP_SLOW_SORTING, VALUE_FALSE);
+        properties.put(PROP_SLOW_SORTING_DELAY,"60");
         
         properties.put(PROP_SHORTCUT_ALL_ITEMS, "LCONTROL+LSHIFT, RCONTROL+RSHIFT");
         properties.put(PROP_SHORTCUT_EVERYTHING, "SPACE");
