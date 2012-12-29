@@ -12,7 +12,7 @@ import org.lwjgl.util.Point;
  * @author Jimeo Wan
  * 
  */
-public abstract class InvTweaksGuiSettingsAbstract extends aul /* GuiScreen */ {
+public abstract class InvTweaksGuiSettingsAbstract extends aue /* GuiScreen */ {
 
 	protected static final Logger log = Logger.getLogger("InvTweaks");
     

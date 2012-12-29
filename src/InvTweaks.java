@@ -82,7 +82,7 @@ public class InvTweaks extends InvTweaksObfuscation {
     public InvTweaks(Minecraft mc) {
         super(mc);
 
-        log.setLevel(InvTweaksConst.DEBUG);
+        log.setLevel(InvTweaksConst.DEFAULT_LOG_LEVEL);
 
         // Store instance
         instance = this;
@@ -488,7 +488,7 @@ public class InvTweaks extends InvTweaksObfuscation {
 
                     InvTweaksContainerManager containerMgr = new InvTweaksContainerManager(mc);
                     containerMgr.setClickDelay(config.getClickDelay());
-					sq slotAtMousePosition = containerMgr.getSlotAtMousePosition();
+					sr slotAtMousePosition = containerMgr.getSlotAtMousePosition();
                     InvTweaksContainerSection target = null;
                     if (slotAtMousePosition != null) {
                     	target = containerMgr.getSlotSection(getSlotNumber(slotAtMousePosition));

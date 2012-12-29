@@ -50,6 +50,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
         else {
             this.container = getPlayerContainer();
         }
+        
         List<sr> slots = (List<sr>) getSlots(container);
         int size = slots.size();
         boolean guiWithInventory = true;
@@ -303,13 +304,13 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
         }
     }
 
-    public sq getSlotAtMousePosition() {
+    public sr getSlotAtMousePosition() {
 	    // Copied from GuiContainer
     	if (guiContainer != null) {
 	        int x = getMouseX();
 	        int y = getMouseY();
 		    for (int k = 0; k < getSlots(getContainer(guiContainer)).size(); k++) {
-		    	sq slot = (sq) getSlots(getContainer(guiContainer)).get(k);
+		    	sr slot = (sr) getSlots(getContainer(guiContainer)).get(k);
 		        if (getIsMouseOverSlot(slot, x, y)) {
 		            return slot;
 		        }
@@ -321,7 +322,7 @@ public class InvTweaksContainerManager extends InvTweaksObfuscation {
     	}
 	}
     
-	public boolean getIsMouseOverSlot(sq slot) {
+	public boolean getIsMouseOverSlot(sr slot) {
 		return getIsMouseOverSlot(slot, getMouseX(), getMouseY());
 	}
 	

@@ -82,6 +82,7 @@ public class InvTweaksObfuscation {
         return getKeyCode(getGameSettings().H);
     }
 
+
 	// EntityPlayer members
 
 	protected qw getInventoryPlayer() { // InventoryPlayer
@@ -215,7 +216,7 @@ public class InvTweaksObfuscation {
         return item.n();
     }
     protected int getMaxDamage(up item) {
-        return item.m();
+    	return item.m();
     }
     protected int getArmorLevel(su itemArmor) { // ItemArmor
         return itemArmor.b;
@@ -263,7 +264,7 @@ public class InvTweaksObfuscation {
         try {
             // Creative slots don't set the "g" property, serve as a proxy for true slots
             if (slot instanceof avu) {
-            	sq underlyingSlot = (sq) getThroughReflection(avn.class, "b", slot);
+            	sr underlyingSlot = (sr) getThroughReflection(avu.class, "b", slot);
                 if (underlyingSlot != null) {
                     return underlyingSlot.g;
                 }
@@ -372,92 +373,92 @@ public class InvTweaksObfuscation {
     }
 
     protected boolean isGuiContainer(Object o) { // GuiContainer (abstract class)
-        return o != null && o instanceof auy;
+        return o != null && o instanceof avf;
     }
 	
     protected boolean isGuiBeacon(Object o) { // GuiBeacon
-        return o != null && o.getClass().equals(auz.class);
-    }
-    protected boolean isGuiBrewingStand(Object o) { // GuiBrewingStand
         return o != null && o.getClass().equals(avg.class);
     }
+    protected boolean isGuiBrewingStand(Object o) { // GuiBrewingStand
+        return o != null && o.getClass().equals(avn.class);
+    }
     protected boolean isGuiChest(Object o) { // GuiChest
-        return o != null && o.getClass().equals(avi.class);
+        return o != null && o.getClass().equals(avp.class);
     }
     protected boolean isGuiWorkbench(Object o) { // GuiWorkbench
-        return o != null && o.getClass().equals(avj.class);
-    }
-    protected boolean isGuiInventoryCreative(Object o) { // GuiInventoryCreative
-        return o != null && o.getClass().equals(avl.class);
-    }
-    protected boolean isGuiEnchantmentTable(Object o) { // GuiEnchantmentTable
         return o != null && o.getClass().equals(avq.class);
     }
-    protected boolean isGuiFurnace(Object o) { // GuiFurnace
-        return o != null && o.getClass().equals(avr.class);
-    }
-    protected boolean isGuiInventory(Object o) { // GuiInventory
+    protected boolean isGuiInventoryCreative(Object o) { // GuiInventoryCreative
         return o != null && o.getClass().equals(avs.class);
     }
+    protected boolean isGuiEnchantmentTable(Object o) { // GuiEnchantmentTable
+        return o != null && o.getClass().equals(avx.class);
+    }
+    protected boolean isGuiFurnace(Object o) { // GuiFurnace
+        return o != null && o.getClass().equals(avy.class);
+    }
+    protected boolean isGuiInventory(Object o) { // GuiInventory
+        return o != null && o.getClass().equals(avz.class);
+    }
     protected boolean isGuiTrading(Object o) { // GuiTrading
-        return o != null && o.getClass().equals(avt.class);
+        return o != null && o.getClass().equals(awa.class);
     }
     protected boolean isGuiAnvil(Object o) { // GuiAnvil
-        return o != null && o.getClass().equals(avv.class);
+        return o != null && o.getClass().equals(awc.class);
     }
     protected boolean isGuiDispenser(Object o) { // GuiDispenser
-        return o != null && o.getClass().equals(avx.class);
+        return o != null && o.getClass().equals(awe.class);
     }
     
     protected boolean isGuiButton(Object o) { // GuiButton
-        return o != null && o instanceof ast;
+        return o != null && o instanceof atb;
     }
     
     protected boolean isGuiEditSign(Object o) { // GuiEditSign
-        return o != null && o.getClass().equals(avw.class);
+        return o != null && o.getClass().equals(awd.class);
     }
 	// ================  TODO  ================
 
     protected boolean isContainerBeacon(Object o) { // ContainerBeacon
-        return o != null && o.getClass().equals(rq.class);
+        return o != null && o.getClass().equals(rr.class);
     }
     protected boolean isContainerBrewingStand(Object o) { // ContainerBrewingStand
-        return o != null && o.getClass().equals(rs.class);
+        return o != null && o.getClass().equals(rt.class);
     }
     protected boolean isContainerChest(Object o) { // ContainerChest
-        return o != null && o.getClass().equals(rw.class);
+        return o != null && o.getClass().equals(rx.class);
     }
     protected boolean isContainerWorkbench(Object o) { // ContainerWorkbench
-        return o != null && o.getClass().equals(ry.class);
-    }
-    protected boolean isContainerEnchantmentTable(Object o) { // ContainerEnchantmentTable
         return o != null && o.getClass().equals(rz.class);
     }
+    protected boolean isContainerEnchantmentTable(Object o) { // ContainerEnchantmentTable
+        return o != null && o.getClass().equals(sa.class);
+    }
     protected boolean isContainerFurnace(Object o) { // ContainerFurnace 
-        return o != null && o.getClass().equals(sc.class);
+        return o != null && o.getClass().equals(sd.class);
     }
 	protected boolean isContainerPlayer(Object o) { // ContainerPlayer
-	    return o != null && o.getClass().equals(se.class);
+	    return o != null && o.getClass().equals(sf.class);
 	}
     protected boolean isContainerTrading(Object o) { // ContainerTrading
-        return o != null && o.getClass().equals(si.class);
+        return o != null && o.getClass().equals(sj.class);
     }
     protected boolean isContainerAnvil(Object o) { // ContainerAnvil
-        return o != null && o.getClass().equals(sl.class);
+        return o != null && o.getClass().equals(sm.class);
     }
     protected boolean isContainerDispenser(Object o) { // ContainerDispenser
-        return o != null && o.getClass().equals(sr.class);
+        return o != null && o.getClass().equals(ss.class);
     }
     protected boolean isContainerCreative(Object o) { // ContainerCreative
-        return o != null && o.getClass().equals(avm.class);
+        return o != null && o.getClass().equals(avt.class);
     }
 
     protected boolean isItemArmor(Object o) { // ItemArmor
-        return o != null && o instanceof st;
+        return o != null && o instanceof su;
     }
 
     protected boolean isBasicSlot(Object o) { // Slot
-        return o != null && o.getClass().equals(sq.class);
+        return o != null && o.getClass().equals(sr.class);
     }
     
     // Reflection utils

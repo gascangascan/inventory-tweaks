@@ -15,7 +15,7 @@ public class InvTweaksGuiShortcutsHelp extends aue /* GuiScreen */ {
     private InvTweaksConfig config;
     
     public InvTweaksGuiShortcutsHelp(Minecraft mc, 
-    		aul parentScreen, InvTweaksConfig config) {
+    		aue parentScreen, InvTweaksConfig config) {
         this.obf = new InvTweaksObfuscation(mc);
         this.parentScreen = parentScreen;
         this.config = config;
